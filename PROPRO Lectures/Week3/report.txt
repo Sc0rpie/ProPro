@@ -1,0 +1,76 @@
+QUERY1
+15
+Alice Smith
+Arnold Sleight
+Jenny Doe
+...
+
+QUERY2
+881
+Arnold Thornton | avg: 5
+Arnold Thornton | avg: 7.75
+Karl Madsen	| avg: 7
+...
+
+QUERY3
+787
+Karl Madsen
+Luke Brighthill
+Debora Damon
+...
+
+QUERY4
+505
+Arnold Thornton | 2c.
+Arnold Thornton | 3c.
+Luke Brighthill | 3c.
+...
+
+QUERY5
+259
+Debora Damon
+Robert Smith
+Helen King
+...
+
+QUERY6
+648
+Arnold Thornton
+Arnold Thornton
+Karl Madsen
+...
+
+QUERY7
+199
+Karl Madsen
+Kylie Smith
+Melissa Perry
+...
+
+QUERY8
+81
+Adam Gibbs
+Helen King
+Julie Note
+...
+
+QUERY9
+270
+Karl Madsen
+Adam Gibbs
+Helen King
+...
+
+QUERY10
+245
+Luke Brighthill
+Eve Enderman
+Alice Lockwood
+...
+
+QUERY11
+557
+Arnold Thornton
+Arnold Thornton
+Karl Madsen
+...
