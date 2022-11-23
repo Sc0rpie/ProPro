@@ -1,4 +1,4 @@
 /Random
 *.out
 .vscode/settings.json
-/.vscode
+.vscode/*
