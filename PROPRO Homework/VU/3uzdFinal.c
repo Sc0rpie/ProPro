@@ -2,19 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define SIZE 256
-
-int sizeOfArray(char inout[])
-{
-    int size = 0;
-    int i = 0;
-    while (inout[i] != '\0')
-    {
-        size++;
-        i++;
-    }
-    return size;
-}
 void reverseString(char inout[], int start, int end)
 {
     char tmp; /* naudojamas char'o saugojimui */
@@ -28,10 +15,10 @@ void reverseString(char inout[], int start, int end)
     }
 }
 
-void reverseInput(char inout[])
+void reverseInput(char inout[], int charCount)
 {
     int i, start = 0, end = 0; /* start - zodzio pradzia, end - zodzio pabaiga*/
-    for (i = 0; i < 255; i++)
+    for (i = 0; i < charCount+1; i++)
     {
         if (inout[i] == ' ' || inout[i] == '\0')
         {
@@ -52,11 +39,9 @@ int main(int argc, char *argv[])
 {
     FILE *read;
     FILE *write;
-    char test[] = "Hello";
-    /*char inout[256]*/
+    int charCount; /* simboliu counter */
     size_t buffSize = 256;
-    size_t charCount;
-    char *inout = malloc(sizeof(char) * SIZE);
+    char *inout = malloc(sizeof(char) * 256);
 
     read = fopen(argv[1], "r");
     if (read == NULL) /* tikrinimas ar atidaromas failas */
@@ -74,28 +59,15 @@ int main(int argc, char *argv[])
 
     /*Skaitymas*/
 
-    while (fgets(inout, SIZE, read))
+    while ((charCount = getline(&inout, &buffSize, read)) > 0)
     {
-        printf("%d\n", sizeOfArray(inout));
-        if (sizeOfArray(inout) == 255)
-        {
-            if (inout[255] != '\n')
-            {
-                while (getc(read) != '\n' || feof(read))
-                    ;
-                reverseInput(inout);
-                fputs(inout, write);
-                fputc('\n', write);
-            }
-        }
-        else
-        {
-            printf("Original: %s\n", inout);
-            reverseInput(inout);
-            printf("Reversed: %s\n", inout);
+        printf("%lu\n", buffSize);
+            reverseInput(inout,charCount);
             fputs(inout, write);
-        }
     }
+    fclose(read);
+    fclose(write);
+    free(inout);
 
     return 0;
 }
