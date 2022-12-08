@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <functions.h>
 
-void printNode(Node* n)
+void printNode(Node *n)
 {
     while (n != NULL)
     {
@@ -12,7 +12,7 @@ void printNode(Node* n)
     printf("\n");
 }
 
-int findMax(Node* n)
+int findMax(Node *n)
 {
     int pos = 1;
     int maxPos = pos;
@@ -26,34 +26,35 @@ int findMax(Node* n)
             max = n->data;
             maxPos = pos;
         }
-            
+
         n = n->next;
     }
     return maxPos;
 }
 
-void pushNodeF(Node** head, int n_data) // n_data - new data
+void pushNodeF(Node **head, int n_data) /* n_data - new data */
 {
-    Node* new_node = (Node*)malloc(sizeof(Node));
+    Node *new_node = (Node *)malloc(sizeof(Node));
     new_node->data = n_data;
     new_node->next = *head;
     *head = new_node;
 }
 
-void removeMax(Node** head, int pos)
+void removeMax(Node **head, int pos)
 {
-    Node* tmp = *head;
-    Node* prev = *head;
+    int i;
+    Node *tmp = *head;
+    Node *prev = *head;
     if (pos == 1)
     {
         *head = (*head)->next;
         free(tmp);
         return;
     }
-    for (int i = 0; i < pos; i++)
+    for (i = 0; i < pos; i++)
     {
-        /*if (i == pos-1 && tmp)*/ 
-        if(i == pos-1)
+        /*if (i == pos-1 && tmp)*/
+        if (i == pos - 1)
         {
             /*printf("%d\n", i);*/
             /*printf("YIF ||| %p | %p\n", prev, tmp);*/
@@ -70,5 +71,4 @@ void removeMax(Node** head, int pos)
             /*printf("NTP ||| %p\n", tmp);*/
         }
     }
-    
 }
