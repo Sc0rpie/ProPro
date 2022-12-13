@@ -1,0 +1,3 @@
+To get .i, use: gcc -E file.c -o file.i
+To get .s, use: gcc -S file.c -o file.s
+to get .o, use: gcc -g -O -c file.c -o file.o

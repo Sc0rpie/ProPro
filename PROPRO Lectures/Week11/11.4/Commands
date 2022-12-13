@@ -1,0 +1,6 @@
+/*
+Creating .a library file:
+ar rc {initial lib name.a} {.o files}
+libtool -static -o {final lib name.a} {initial lib name.a}
+gcc main.o libfile.a -o main-static
+*/
